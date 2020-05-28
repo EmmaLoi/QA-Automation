@@ -14,7 +14,10 @@ public class Calculator {
 
                 Scanner myObj = new Scanner(System.in);  // Create a object that can read user input
                 String menuItem = myObj.nextLine();  // Read user input
-                System.out.println("Menu item is: " + menuItem);  // Output user input
+
+                if (menuItem.isEmpty() ) {
+                    System.out.println("Your field is empty");
+                }
 
                 if (menuItem.contains("0") || menuItem.contains("exit")) {
                     break;
@@ -22,6 +25,7 @@ public class Calculator {
 
                 switch (menuItem) {
                     case "1":
+                        System.out.println("Menu item is: " + menuItem);
                         System.out.println("Enter first number: ");
                         int firstNumber = myObj.nextInt();
                         System.out.println("Enter second number: ");
@@ -29,6 +33,7 @@ public class Calculator {
                         System.out.println("Result of addition: " + add(firstNumber, secondNumber));
                         break;
                     case "2":
+                        System.out.println("Menu item is: " + menuItem);
                         System.out.println("Enter first number: ");
                         int firstNumber2 = myObj.nextInt();
                         System.out.println("Enter second number: ");
@@ -36,19 +41,23 @@ public class Calculator {
                         System.out.println("Result of subtraction: " + sub(firstNumber2, secondNumber2));
                         break;
                     case "3":
+                        System.out.println("Menu item is: " + menuItem);
                         System.out.println("Enter first number: ");
                         int firstNumber3 = myObj.nextInt();
                         System.out.println("Enter second number: ");
                         int secondNumber3 = myObj.nextInt();
-                        System.out.println("Result of addition: " + multi(firstNumber3, secondNumber3));
+                        System.out.println("Result of multiplication: " + multi(firstNumber3, secondNumber3));
                         break;
                     case "4":
+                        System.out.println("Menu item is: " + menuItem);
                         System.out.println("Enter first number: ");
                         int firstNumber4 = myObj.nextInt();
                         System.out.println("Enter second number: ");
                         int secondNumber4 = myObj.nextInt();
-                        System.out.println("Result of addition: " + div(firstNumber4, secondNumber4));
+                        System.out.println("Result of division: " + div(firstNumber4, secondNumber4));
                         break;
+                    default:
+                        System.out.println("Item not found");
                 }
             }
         }
@@ -62,7 +71,7 @@ public class Calculator {
         private static int multi(int firstNumber3, int secondNumber3) {
             return firstNumber3 * secondNumber3;
         }
-        private static int div(int firstNumber4, int secondNumber4){
+        private static double div(double firstNumber4, double secondNumber4){
             return firstNumber4 / secondNumber4;
         }
     }
