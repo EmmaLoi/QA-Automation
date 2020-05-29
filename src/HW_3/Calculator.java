@@ -2,6 +2,10 @@ package HW_3;
 import java.util.Scanner;
 
 public class Calculator {
+    static int firstNumber;
+    static int secondNumber;
+    static Scanner myObj;
+    static String menuItem;
 
         public static void main(String[] args) {
             while (true) {
@@ -12,8 +16,8 @@ public class Calculator {
                 System.out.println("4. Division");
                 System.out.println("0. Exit");
 
-                Scanner myObj = new Scanner(System.in);  // Create a object that can read user input
-                String menuItem = myObj.nextLine();  // Read user input
+                myObj = new Scanner(System.in);
+                menuItem = myObj.nextLine();
 
                 if (menuItem.isEmpty() ) {
                     System.out.println("Your field is empty");
@@ -25,36 +29,20 @@ public class Calculator {
 
                 switch (menuItem) {
                     case "1":
-                        System.out.println("Menu item is: " + menuItem);
-                        System.out.println("Enter first number: ");
-                        int firstNumber = myObj.nextInt();
-                        System.out.println("Enter second number: ");
-                        int secondNumber = myObj.nextInt();
-                        System.out.println("Result of addition: " + add(firstNumber, secondNumber));
+                        userOutput();
+                        System.out.println("Result of addition: " + add());
                         break;
                     case "2":
-                        System.out.println("Menu item is: " + menuItem);
-                        System.out.println("Enter first number: ");
-                        int firstNumber2 = myObj.nextInt();
-                        System.out.println("Enter second number: ");
-                        int secondNumber2 = myObj.nextInt();
-                        System.out.println("Result of subtraction: " + sub(firstNumber2, secondNumber2));
+                        userOutput();
+                        System.out.println("Result of subtraction: " + sub());
                         break;
                     case "3":
-                        System.out.println("Menu item is: " + menuItem);
-                        System.out.println("Enter first number: ");
-                        int firstNumber3 = myObj.nextInt();
-                        System.out.println("Enter second number: ");
-                        int secondNumber3 = myObj.nextInt();
-                        System.out.println("Result of multiplication: " + multi(firstNumber3, secondNumber3));
+                        userOutput();
+                        System.out.println("Result of multiplication: " + multi());
                         break;
                     case "4":
-                        System.out.println("Menu item is: " + menuItem);
-                        System.out.println("Enter first number: ");
-                        int firstNumber4 = myObj.nextInt();
-                        System.out.println("Enter second number: ");
-                        int secondNumber4 = myObj.nextInt();
-                        System.out.println("Result of division: " + div(firstNumber4, secondNumber4));
+                        userOutput();
+                        System.out.println("Result of division: " + div());
                         break;
                     default:
                         System.out.println("Item not found");
@@ -62,17 +50,28 @@ public class Calculator {
             }
         }
 
-        private static int add(int firstNumber, int secondNumber) {
-            return firstNumber + secondNumber;
-        }
-         private static int sub(int firstNumber2, int secondNumber2) {
-            return firstNumber2 - secondNumber2;
-        }
-        private static int multi(int firstNumber3, int secondNumber3) {
-            return firstNumber3 * secondNumber3;
-        }
-        private static double div(double firstNumber4, double secondNumber4){
-            return firstNumber4 / secondNumber4;
-        }
+    private static void userOutput() {
+        System.out.println("Menu item is: " + menuItem);
+        System.out.println("Enter first number: ");
+        firstNumber = myObj.nextInt();
+        System.out.println("Enter second number: ");
+        secondNumber = myObj.nextInt();
     }
+
+    private static int add() {
+        return firstNumber + secondNumber;
+    }
+
+    private static int sub() {
+        return firstNumber - secondNumber;
+    }
+
+    private static int multi() {
+        return firstNumber * secondNumber;
+    }
+
+    private static double div() {
+        return (double) firstNumber / (double) secondNumber;
+    }
+}
 
